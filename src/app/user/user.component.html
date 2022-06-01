@@ -1,0 +1,67 @@
+<router-outlet></router-outlet>
+<div class="list">
+    <img src="https://cdn-icons-png.flaticon.com/128/681/681494.png" width="60px" height="40px" />
+    <p style="font-size: 30px">User List</p>
+</div>
+
+<div class="grid">
+    <p-dialog header="UserName" [(visible)]="display">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit(userName)">
+            <div class="form-group">
+                <label for="userName"><b>userName</b></label>
+                <input type="text" id="userName" [(ngModel)]="userName" formControlName="userName" [ngClass]="{
+            'is-invalid':
+              userForm.get('userName').errors &&
+              userForm.get('userName').touched
+          }" class="form-control" />
+                <div class="invalid-feedback" *ngIf="userForm.get('userName').hasError('userNameTaken')">
+                    userName is Taken!
+                </div>
+                <br />
+
+                <button type="submit" class="btn btn-success">
+          <i class="fas fa-save" (click)="onAdd()"></i>Add
+        </button>
+                <button class="btn btn-warning" type="button" (click)="onCancel()">
+          <i class="fas fa-snowplow"></i>Cancel
+        </button>
+            </div>
+        </form>
+    </p-dialog>
+
+    <button type="button" (click)="display = true" icon="pi pi-info-circle" label="Show">
+    ADD
+  </button>
+</div>
+
+<div class="p-mb-3">
+    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+</div>
+<p-table [value]="usersLists" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>UserName</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>CreatedDateTime</th>
+            <th>Options</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usersLists>
+        <tr>
+            <td>{{ usersLists.userName }}</td>
+            <td>{{ usersLists.firstName }}</td>
+            <td>{{ usersLists.lastName }}</td>
+            <td>{{ usersLists.createdDateTime }}</td>
+            <td>
+
+
+                <button pButton type="button" label="delete" (click)="deleteData(usersLists.id)" icon="pi pi-times" class="p-button-text"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- <button class="btn btn-danger">Delete</button> -->

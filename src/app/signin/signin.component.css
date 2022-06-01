@@ -1,0 +1,67 @@
+h2 {
+    margin-left: 25px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h3 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.pad {
+    display: inline-block;
+    margin-left: 10px;
+    border: 2px solid darkgrey;
+    padding: 5px;
+}
+
+.input-group {
+    margin-top: 7%;
+}
+
+.img {
+    position: relative;
+    box-shadow: 5px gray;
+    float: left;
+    margin-left: 20%;
+}
+
+.float {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.h1 {
+    background-color: skyblue;
+    width: 100%;
+}
+
+.move {
+    margin-left: 20%;
+}
+
+.btn-default {
+    margin-left: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    /* display: inline-block; */
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: aqua;
+    /* margin-top: 10%; */
+}
+
+.logo img {
+    margin-top: -4%;
+}
+
+.p-tab {
+    text-align: center;
+}
+
+@media screen and (max-width: 550px) {}

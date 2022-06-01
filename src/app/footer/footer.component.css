@@ -1,0 +1,12 @@
+div {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    height: 5%;
+    background: #086082;
+    width: 100%;
+    opacity: 0.8;
+    font-size: medium;
+}
+
+@media screen and (max-width: 300px) {}

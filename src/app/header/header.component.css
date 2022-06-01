@@ -1,0 +1,22 @@
+img {
+    width: 253px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.navbar-default {
+    background-color: #086082;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    opacity: 0.8;
+    position: sticky;
+    width: 100%;
+}
+
+.logout {
+    background-color: red;
+}
+
+@media screen and (max-width: 300px) {}

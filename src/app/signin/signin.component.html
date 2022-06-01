@@ -1,0 +1,157 @@
+<app-header></app-header>
+<div class="h1">
+    <img src="https://cdn-icons-png.flaticon.com/512/633/633781.png" width="50px" height="50px" />
+    <p>Add New</p>
+</div>
+
+<div class="well">
+    <hr>
+    <form ngNativeValidate (ngSubmit)="onSubmit(userObject )">
+        <div class="logo">
+            <!-- <label for="file-upload" class="custom-file-upload">
+     
+            +
+
+        </label>
+
+        <input id="file-upload" type="file" accept=" image/jpg, image/png" required/> -->
+
+            <img class="img" [src]="imageUrl" width="200px" height="200px" />
+            <label for="file-upload" class="custom-file-upload"> +Add Image </label>
+
+            <input id="file-upload" type="file" accept=" image/jpg, image/png" (change)="onChange($event)" required />
+            <button type="submit" class="btn-large btn-submit">Submit</button>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div id="ui">
+                        <form class="form-group" (ngSubmit)="onSubmit(userObject)">
+                            <label>User Name:</label>
+                            <input type="text" name="user" [(ngModel)]="userObject.userName" name="user" class="form-control" /><br />
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>First name:</label>
+                                    <input type="text" [(ngModel)]='userObject.firstName' name="first" class="form-control" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Last name:</label>
+                                    <input type="text" [(ngModel)]="userObject.lastName" name="last" class="form-control" />
+                                </div>
+                                <div class="col-log-6"></div>
+                            </div>
+                            <br />
+                            <h3>Gender*</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="c1">
+                                        <div class="pad">
+                                            <input class="a" [(ngModel)]="userObject.gender" value="Male" name="gender" type="radio" name="size" id="small" checked />
+                                            <label class="a1" for="small">Male</label>
+                                        </div>
+                                        <div class="pad">
+                                            <input class="a" [(ngModel)]="userObject.gender" value="Female" name="gender" type="radio" name="size" id="large" />
+                                            <label class="a1" for="large">Female</label>
+                                        </div>
+                                        <div class="pad">
+                                            <input class="a" [(ngModel)]="userObject.gender" value="Others" type="radio" name="gender" name="size" id="lr" />
+                                            <label class="a1" for="lr">Others</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6" style="margin-top: -8%">
+                                    <h3>Date of birth</h3>
+                                    <input class="form-control" [(ngModel)]="userObject.dateOfBirth" name="date" type="date" id="date" name="name" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>E-mail:</label>
+                                    <input type="email" [(ngModel)]="userObject.emailId" name="email" name="email" class="form-control" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">+91</span>
+                                        <input oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="string" id="mobileNumber" class="form-control" maxlength="10" [(ngModel)]="userObject.mobileNumber" name="mobile" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="role">roles*</label>
+                                    <input type="text" [(ngModel)]='userObject.roles' name="roles" class="form-control" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="timeZone">Time Zone*</label>
+                                    <input list="zones" id="timeZone" [(ngModel)]="userObject.timeZone" name="time" required class="form-control" />
+                                    <datalist id="zones">
+                                        <option value="UTC +5:30 IST">
+                                        <option value="UTC -4 EDT">
+                                    </datalist>
+                                </div>
+                                <div class="col-log-6"></div>
+                            </div> <br>
+
+                            <h4>Address</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>Address field1*</label>
+                                    <input type="text" [(ngModel)]="userObject.addressField1" name="address1" class="form-control" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Address field2*</label>
+                                    <input type="text" [(ngModel)]="userObject.addressField2" name="address2" class="form-control" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="country">Country<font color="black">*</font></label>
+
+                                        <select class="form-control" [(ngModel)]="selectedCountry" [ngModelOptions]="{standalone:true}">
+                                            <option [ngValue]="country" *ngFor="let country of countryList" required>{{country}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="state">State<font color="black">*</font></label>
+
+                                        <select class="form-control" [(ngModel)]="selectedState" [ngModelOptions]="{standalone:true}">
+                                            <option [ngValue]="state" *ngFor="let state of stateList">{{state}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>Zip code*</label>
+                                    <input class="form-control" [(ngModel)]="userObject.zipCode" type="text" name="zipCode" required/>
+                                </div>
+                            </div>
+                            <div class="float">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button class="btn btn-default" (click)="onCancel()">
+                Cancel
+              </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>
+
+<!-- <router-outlet></router-outlet> -->

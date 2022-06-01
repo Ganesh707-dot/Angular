@@ -1,0 +1,30 @@
+<div class="container-fluid">
+
+    <div class="navbar-header">
+
+        <img src="https://itorizon.com/wp-content/uploads/2020/10/cropped-Logo-Itorizon-2017.png" alt="logo" />
+    </div>
+</div>
+<nav class="navbar navbar-default">
+
+    <a routerLink="/" class="navbar-brand"></a>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active"> <a routerLink="/home">Home</a></li>
+            <li routerLinkActive="active"><a routerLink="/user">user</a></li>
+            <li routerLinkActive="active"><a routerLink="/roles">Roles</a></li>
+            <!-- <li><a routerLink="/login">login</a></li> -->
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <button class="logout" (click)="onLogOut()">Logout</button>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+</nav>
+<app-footer></app-footer>
